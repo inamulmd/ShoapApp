@@ -35,7 +35,7 @@ const Home = () => {
             (<div>
                {
                 posts.map ( (post) => (
-                    <Product key ={post.id} post={post}/>
+                    <Product key ={post.id} post={post  }/>
                 ))
                }
             </div>) :

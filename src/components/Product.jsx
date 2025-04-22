@@ -1,6 +1,22 @@
 import React from 'react'
+import { useDispatch, useSelector } from "react-redux";
+
 
 const Product = ({post}) => {
+
+  const {cart} = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  const addToCart =()=> {
+    dispatch(add(post));
+    toast.success("Item added to Cart");
+  }
+  
+  const removeFromCart =()=> {
+    dispatch(remove(post.id));
+    toast.success("Item removed from Cart");
+  }
+ 
 
 
   return (
@@ -19,11 +35,17 @@ const Product = ({post}) => {
                 {post.price}
             </p>
         </div>
-        <button>
-            {
-                true? <p>Remove Items</p> : <p> Add to Cart</p>
-            }
-        </button>
+          {
+            cart.some((p) => p.id == post.id) ?
+            (<button
+            onCLick={removeFromCart}>
+               Remove Item
+            </button>) :
+            (<button
+            onClick ={addToCart}>
+                Add to Cart
+            </button>)
+          }
     </div>
   )
 }
