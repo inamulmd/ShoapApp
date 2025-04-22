@@ -1,8 +1,9 @@
 import React from 'react'
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import { useState } from 'react';
-
+import toast from 'react-hot-toast'; 
 import { useDispatch, useSelector } from "react-redux";
+
 
 
 const CartItems = ({item, itemIndex}) => {

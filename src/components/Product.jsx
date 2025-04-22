@@ -1,5 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from "react-redux";
+import {add,remove} from "../redux/Slices/CartSlice.jsx"
+import toast from 'react-hot-toast'; 
 
 
 const Product = ({post}) => {
@@ -36,9 +38,9 @@ const Product = ({post}) => {
             </p>
         </div>
           {
-            cart.some((p) => p.id == post.id) ?
+            cart.some((p) => p.id === post.id) ?
             (<button
-            onCLick={removeFromCart}>
+            onClick={removeFromCart}>
                Remove Item
             </button>) :
             (<button
